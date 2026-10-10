@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hlysk. — Команды</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">Hlysk.</a>
+            <nav class="nav">
+                <a href="index.html">Главная</a>
+                <a href="commands.html" class="active">Документация</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-commands">
+        <header class="page-header">
+            <h1 class="page-title">Справочник</h1>
+            <p class="page-subtitle">Полная документация по командам и их параметрам.</p>
+        </header>
+
+        <!-- Вкладки -->
+        <div class="tabs">
+            <button class="tab-btn active" data-target="mod">Выговоры</button>
+            <button class="tab-btn" data-target="settings">Настройки</button>
+            <button class="tab-btn" data-target="info">Информация</button>
+            <button class="tab-btn" data-target="system">Система</button>
+        </div>
+
+        <div class="tab-content">
+            
+            <!-- Выговоры (Кураторы) -->
+            <div class="tab-pane active" id="mod">
+                <div class="accordion">
+                    
+                    <div class="acc-item">
+                        <button class="acc-header">
+                            <span class="acc-cmd">/warnadd</span>
+                            <span class="acc-title">Выдать выговор</span>
+                            <span class="acc-icon">+</span>
+                        </button>
+                        <div class="acc-body-wrapper">
+                            <div class="acc-body">
+                                <p>Выдает пользователю выговор. Бот проверяет лимит, отправляет отчет в логи и уведомляет участника. При достижении лимита применяются настроенные наказания.</p>
+                                <div class="cmd-details">
+                                    <div class="cmd-block">
+                                        <strong>Параметры</strong>
+                                        <ul class="param-list">
+                                            <li><code>пользователь</code> <span>(обязательно)</span></li>
+                                            <li><code>причина</code> <span>(обязательно)</span></li>
+                                            <li><code>кол-во</code> <span>(опционально, по умолч. 1)</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="cmd-block">
+                                        <strong>Доступ</strong>
+                                        <span>Кураторы</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acc-item">
+                        <button class="acc-header">
+                            <span class="acc-cmd">/warnremove</span>
+                            <span class="acc-title">Снять выговор</span>
+                            <span class="acc-icon">+</span>
+                        </button>
+                        <div class="acc-body-wrapper">
+                            <div class="acc-body">
+                                <p>Уменьшает счетчик выговоров пользователя на указанное число.</p>
+                                <div class="cmd-details">
+                                    <div class="cmd-block">
+                                        <strong>Параметры</strong>
+                                        <ul class="param-list">
+                                            <li><code>пользователь</code> <span>(обязательно)</span></li>
+                                            <li><code>кол-во</code> <span>(опционально, по умолч. 1)</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="cmd-block">
+                                        <strong>Доступ</strong>
+                                        <span>Кураторы</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acc-item">
+                        <button class="acc-header">
+                            <span class="acc-cmd">/warnclear</span>
+                            <span class="acc-title">Очистить историю</span>
+                            <span class="acc-icon">+</span>
+                        </button>
+                        <div class="acc-body-wrapper">
+                            <div class="acc-body">
+                                <p>Полностью обнуляет все выговоры указанного пользователя.</p>
+                                <div class="cmd-details">
+                                    <div class="cmd-block">
+                                        <strong>Доступ</strong>
+                                        <span>Кураторы</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Настройки -->
+            <div class="tab-pane" id="settings">
+                <div class="accordion">
+                    
+                    <div class="acc-item">
+                        <button class="acc-header">
+                            <span class="acc-cmd">/settings</span>
+                            <span class="acc-title">Панель управления</span>
+                            <span class="acc-icon">+</span>
+                        </button>
+                        <div class="acc-body-wrapper">
+                            <div class="acc-body">
+                                <p>Открывает главное интерактивное меню для конфигурации бота на вашем сервере. Позволяет настраивать модули без ввода сложных текстовых команд.</p>
+                                
+                                <div class="cmd-details">
+                                    <div class="cmd-block">
+                                        <strong>Доступные модули в меню:</strong>
+                                        <ul class="param-list">
+                                            <li><code>Начальная роль</code> <span>Выбор роли, которая будет автоматически выдаваться при входе.</span></li>
+                                            <li><code>Система выговоров</code> <span>Настройка каналов отчетов, логов, лимитов, а также ролей кураторов и ролей для снятия.</span></li>
+                                            <li><code>Заявки</code> <span>Создание анкет с вопросами, настройка каналов транскриптов и категорий для тикетов-собеседований.</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="cmd-block">
+                                        <strong>Доступ</strong>
+                                        <span>Администратор</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Информация -->
+            <div class="tab-pane" id="info">
+                <div class="accordion">
+                    
+                    <div class="acc-item">
+                        <button class="acc-header">
+                            <span class="acc-cmd">/warnlist</span>
+                            <span class="acc-title">Список выговоров</span>
+                            <span class="acc-icon">+</span>
+                        </button>
+                        <div class="acc-body-wrapper">
+                            <div class="acc-body">
+                                <p>Открывает интерактивное меню (пагинатор) для просмотра истории выговоров участника: дата, причина и текущий статус.</p>
+                                <div class="cmd-details">
+                                    <div class="cmd-block">
+                                        <strong>Доступ</strong>
+                                        <span>Все пользователи</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acc-item">
+                        <button class="acc-header">
+                            <span class="acc-cmd">/help</span>
+                            <span class="acc-title">Справка</span>
+                            <span class="acc-icon">+</span>
+                        </button>
+                        <div class="acc-body-wrapper">
+                            <div class="acc-body">
+                                <p>Выводит справочник по всем командам бота внутри интерфейса Discord.</p>
+                                <div class="cmd-details">
+                                    <div class="cmd-block">
+                                        <strong>Доступ</strong>
+                                        <span>Все пользователи</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Система -->
+            <div class="tab-pane" id="system">
+                <div class="accordion">
+                    
+                    <div class="acc-item">
+                        <button class="acc-header">
+                            <span class="acc-cmd">/wsync</span>
+                            <span class="acc-title">Синхронизация серверов</span>
+                            <span class="acc-icon">+</span>
+                        </button>
+                        <div class="acc-body-wrapper">
+                            <div class="acc-body">
+                                <p>Управление глобальной сетью серверов. Позволяет сгенерировать ключ или ввести чужой ключ для объединения баз данных выговоров. Выданный выговор на одном сервере будет применен на всех серверах сети.</p>
+                                <div class="cmd-details">
+                                    <div class="cmd-block">
+                                        <strong>Параметры</strong>
+                                        <ul class="param-list">
+                                            <li><code>[пусто]</code> <span>Сгенерировать ключ текущего сервера для передачи.</span></li>
+                                            <li><code>ключ</code> <span>Ввести сгенерированный ключ для объединения с другим сервером.</span></li>
+                                            <li><code>list</code> <span>Посмотреть список серверов в текущей сети синхронизации.</span></li>
+                                            <li><code>disconnect [ID]</code> <span>Отключить сервер из сети.</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="cmd-block">
+                                        <strong>Доступ</strong>
+                                        <span>Администратор</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <span>&copy; 2026 Hlysk.</span>
+            <span>Telegram для связи - @kvinizz</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
